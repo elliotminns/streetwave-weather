@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <form action="/weather" method="post">
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude">
+        <input type="submit" value="Get Weather">
+    </form>
+
+    <div>
+    <% if (temp && humidity && icon && tempTomorrow && humidityTomorrow && iconTomorrow) { %>
+        <div>
+            <h2>Temperature: <%= temp %>°C</h2>
+            <h2>Humidity: <%= humidity %>%</h2>
+            <img src="<%= icon %>">
+        </div>
+        <% } else { %>
+        <p>Please Enter Your Longitude and Latitude</p>
+        <% } %>
+    </div>
+    
+	<script src="index.js"></script>
+  </body>
+</html>
